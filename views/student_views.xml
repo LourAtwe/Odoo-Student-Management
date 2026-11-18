@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- List View -->
+    <record id="student_list_view" model="ir.ui.view">
+        <field name="name">student.student.list</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <list string="Students">
+
+                <field name="student_id"/>
+                <field name="name"/>
+
+                <!-- Email Widget -->
+                <field name="email" widget="email"/>
+
+                <!-- Phone Widget -->
+                <field name="phone" widget="phone"/>
+
+                <field name="age"/>
+
+                <!-- Badge Widget -->
+                <field name="gender" widget="badge"/>
+
+            </list>
+        </field>
+    </record>
+
+
+    <!-- Form View -->
+    <record id="student_form_view" model="ir.ui.view">
+        <field name="name">student.student.form</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <form string="Student">
+
+                <sheet>
+                  <div class="oe_title">
+                     <h1>
+                    <field name="name" placeholder="Student Name"/>
+                     </h1>
+                  </div>
+
+           <field name="image"
+             widget="image"
+             class="oe_avatar"
+             options="{'size': [128, 128]}"/>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"
+                                   placeholder="Student Name"/>
+                        </h1>
+                    </div>
+
+                    <group>
+
+                        <group string="Personal Information">
+                            <field name="student_id"/>
+                            <field name="age"/>
+                            <field name="gender"
+                                   widget="radio"
+                                   options="{'horizontal': true}"/>
+                             <field name="status" widget="statusbar"/>
+
+                        </group>
+
+                        <group string="Contact Information">
+                            <field name="email" widget="email"/>
+                            <field name="phone" widget="phone"/>
+                            <field name="rating" widget="priority"/>
+
+                        </group>
+
+                    </group>
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+</odoo>
